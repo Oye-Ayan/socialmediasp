@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class PostService {
 
     private final PostRepository postRepository;
@@ -51,6 +52,7 @@ public class PostService {
     }
 
     // ─── GET ALL POSTS (paginated) ─────────────────────────────
+    @Transactional(readOnly = true)
     public Page<Post> getAllPosts(int page, int size, String sortBy) {
         Pageable pageable = PageRequest.of(
                 page, size,
@@ -60,11 +62,13 @@ public class PostService {
     }
 
     // ─── GET POST BY ID ────────────────────────────────────────
+    @Transactional(readOnly = true)
     public Post getPostById(Long id) {
         return getPost(id);
     }
 
     // ─── UPDATE POST ───────────────────────────────────────────
+    @Transactional
     public Post updatePost(Long postId, PostRequest request, String username) {
         Post post = getPost(postId);
 
@@ -78,6 +82,7 @@ public class PostService {
     }
 
     // ─── DELETE POST ───────────────────────────────────────────
+    @Transactional
     public void deletePost(Long postId, String username) {
         Post post = getPost(postId);
 
@@ -127,6 +132,7 @@ public class PostService {
     }
 
     // ─── SEARCH POSTS ──────────────────────────────────────────
+    @Transactional(readOnly = true)
     public Page<Post> searchPosts(SearchRequest request) {
         Pageable pageable = PageRequest.of(
                 request.getPage(),

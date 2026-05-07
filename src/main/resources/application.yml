@@ -5,13 +5,14 @@ spring:
     password: 0987
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-#  jpa:
-#    hibernate:
-#      ddl-auto: update
-#    show-sql: true
-#    properties:
-#      hibernate:
-#    open-in-view: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
 
   cache:
     type: simple
@@ -26,3 +27,7 @@ jwt:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
+  logging:
+    level:
+      org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer: ERROR
