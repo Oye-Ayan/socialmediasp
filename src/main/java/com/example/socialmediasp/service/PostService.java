@@ -134,6 +134,10 @@ public class PostService {
     // ─── SEARCH POSTS ──────────────────────────────────────────
     @Transactional(readOnly = true)
     public Page<Post> searchPosts(SearchRequest request) {
+        String sortBy = request.getSortBy();
+        if (sortBy == null || sortBy.isBlank()) {
+            sortBy = "timestamp";
+        }
         Pageable pageable = PageRequest.of(
                 request.getPage(),
                 request.getSize(),
