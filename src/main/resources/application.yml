@@ -28,6 +28,6 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
 
-  logging:
-    level:
-      org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer: ERROR
+logging:
+  level:
+    org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer: ERROR

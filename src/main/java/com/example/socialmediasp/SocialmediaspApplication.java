@@ -1,18 +1,4 @@
-/*
-package com.example.socialmediasp;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
-public class SocialmediaspApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(SocialmediaspApplication.class, args);
-	}
-
-}
-*/
 package com.example.socialmediasp;
 
 import org.springframework.boot.SpringApplication;
